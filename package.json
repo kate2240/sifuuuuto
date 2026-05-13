@@ -1,0 +1,12 @@
+{
+  "name": "sifuuuuto-shift-manager",
+  "version": "1.0.0",
+  "description": "A simple shift management app with admin save and cross-device sync.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.4"
+  }
+}

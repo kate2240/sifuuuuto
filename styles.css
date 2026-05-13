@@ -1,0 +1,325 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.controls label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.controls select,
+.controls input,
+.controls button {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: white;
+  font-size: 1rem;
+}
+
+.controls button {
+  cursor: pointer;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+
+.share-link-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.share-link-row a {
+  flex: 1;
+  display: inline-block;
+  word-break: break-all;
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.share-link-row button {
+  width: auto;
+}
+
+.staff-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.remove-staff {
+  margin-left: 8px;
+  padding: 2px 6px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.remove-staff:hover {
+  background: #dc2626;
+}
+
+.controls button:hover {
+  background: #2563eb;
+}
+
+.controls button#clearButton {
+  background: #f97316;
+}
+
+button.secondary {
+  background: #f8fafc;
+  color: #1f2937;
+  border: 1px solid #cbd5e1;
+}
+
+.controls button#clearButton:hover {
+  background: #ea580c;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.admin-toggle-button {
+  border: 1px solid #3b82f6;
+  background: white;
+  color: #1d4ed8;
+}
+
+.admin-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+}
+
+.admin-panel.hidden {
+  display: none;
+}
+
+.admin-controls.hidden {
+  display: none;
+}
+
+.requests-list,
+.history-list {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.requests-list h3,
+.history-list h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.request-item,
+.history-item {
+  padding: 12px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.request-item:last-child,
+.history-item:last-child {
+  margin-bottom: 0;
+}
+
+.request-section {
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+  margin-bottom: 24px;
+}
+
+.request-section textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.request-section button {
+  margin-top: 12px;
+}
+
+.status {
+  padding: 10px 12px;
+  background: #eef2ff;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.admin-row {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-row input {
+  flex: 1;
+}
+
+.admin-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.admin-row {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-row input {
+  flex: 1;
+}
+
+.status {
+  padding: 10px 12px;
+  background: #eef2ff;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.admin-row {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-row input {
+  flex: 1;
+}
+
+.status {
+  padding: 10px 12px;
+  background: #eef2ff;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.schedule-card {
+  margin-bottom: 32px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.schedule-card h2 {
+  margin: 0;
+  padding: 20px;
+  background: #eef2ff;
+  font-size: 1.2rem;
+}
+
+.schedule-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-card th,
+.schedule-card td {
+  padding: 14px 12px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.schedule-card th {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.schedule-card td {
+  min-width: 90px;
+}
+
+.schedule-card td.assignable {
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.schedule-card td.assignable:hover {
+  background: #f0f9ff;
+}
+
+.schedule-card td.selected {
+  background: #93c5fd;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.schedule-card td.empty {
+  color: #64748b;
+}
+
+.info {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+}
+
+.info h2 {
+  margin-top: 0;
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>シフト管理サイト</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <div class="header-bar">
+      <h1>シフト管理サイト</h1>
+      <button id="openAdminButton" class="admin-toggle-button">管理者ログイン</button>
+    </div>
+    <p>1日目: 9:00〜12:00 / 2日目: 9:00〜15:00 (30分区切り)</p>
+
+    <section class="controls">
+      <div>
+        <label for="daySelect">日付</label>
+        <select id="daySelect">
+          <option value="1">1日目</option>
+          <option value="2">2日目</option>
+        </select>
+      </div>
+      <div>
+        <label for="viewModeSelect">表示方法</label>
+        <select id="viewModeSelect">
+          <option value="position">役職で分類</option>
+          <option value="number">番号で分類</option>
+        </select>
+      </div>
+      <div>
+        <label for="positionSelect">役職</label>
+        <select id="positionSelect">
+          <option value="調理">調理</option>
+          <option value="接客">接客</option>
+          <option value="レジ">レジ</option>
+          <option value="呼び込み">呼び込み</option>
+        </select>
+      </div>
+      <div>
+        <label for="staffIdSelect">スタッフ番号</label>
+        <select id="staffIdSelect">
+          <option value="">1番〜43番を選択</option>
+          <option value="1">1番</option>
+          <option value="2">2番</option>
+          <option value="3">3番</option>
+          <option value="4">4番</option>
+          <option value="5">5番</option>
+          <option value="6">6番</option>
+          <option value="7">7番</option>
+          <option value="8">8番</option>
+          <option value="9">9番</option>
+          <option value="10">10番</option>
+          <option value="11">11番</option>
+          <option value="12">12番</option>
+          <option value="13">13番</option>
+          <option value="14">14番</option>
+          <option value="15">15番</option>
+          <option value="16">16番</option>
+          <option value="17">17番</option>
+          <option value="18">18番</option>
+          <option value="19">19番</option>
+          <option value="20">20番</option>
+          <option value="21">21番</option>
+          <option value="22">22番</option>
+          <option value="23">23番</option>
+          <option value="24">24番</option>
+          <option value="25">25番</option>
+          <option value="26">26番</option>
+          <option value="27">27番</option>
+          <option value="28">28番</option>
+          <option value="29">29番</option>
+          <option value="30">30番</option>
+          <option value="31">31番</option>
+          <option value="32">32番</option>
+          <option value="33">33番</option>
+          <option value="34">34番</option>
+          <option value="35">35番</option>
+          <option value="36">36番</option>
+          <option value="37">37番</option>
+          <option value="38">38番</option>
+          <option value="39">39番</option>
+          <option value="40">40番</option>
+          <option value="41">41番</option>
+          <option value="42">42番</option>
+          <option value="43">43番</option>
+          <option value="44">44番</option>
+        </select>
+      </div>
+      <div id="adminControls" class="admin-controls hidden">
+        <div>
+          <label>公開リンク</label>
+          <div class="share-link-row">
+            <a id="shareLink" href="#" target="_blank" rel="noopener">公開リンクを準備中...</a>
+            <button id="copyLinkButton" class="secondary" type="button">コピー</button>
+          </div>
+        </div>
+        <button id="assignButton">選択中の枠に代入</button>
+        <button id="clearButton">選択解除</button>
+      </div>
+    </section>
+
+    <section class="admin-panel hidden" id="adminPanel">
+      <div id="loginSection">
+        <label for="adminPasswordInput">管理者パスワード</label>
+        <div class="admin-row">
+          <input id="adminPasswordInput" type="password" placeholder="passward" />
+          <button id="loginButton">管理者ログイン</button>
+        </div>
+      </div>
+      <div id="adminControlsSection" class="hidden">
+        <div>
+          <button id="logoutButton" class="secondary">ログアウト</button>
+        </div>
+        <div>
+          <button id="saveButton" disabled>変更を保存</button>
+        </div>
+        <div>
+          <button id="exportCsvButton">CSVエクスポート</button>
+        </div>
+        <div class="status" id="statusText">サーバーから最新データを取得します。</div>
+        <div id="requestsSection" class="requests-list hidden">
+          <h3>受信リクエスト</h3>
+          <div id="requestsList"></div>
+        </div>
+        <div id="historySection" class="history-list hidden">
+          <h3>変更履歴</h3>
+          <div id="historyList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scheduleSection"></section>
+
+    <section class="request-section">
+      <h2>管理者へのリクエスト</h2>
+      <div class="request-form">
+        <div>
+          <label for="requestStaffIdSelect">あなたの番号</label>
+          <select id="requestStaffIdSelect">
+            <option value="">1番〜43番を選択</option>
+            <option value="1">1番</option>
+            <option value="2">2番</option>
+            <option value="3">3番</option>
+            <option value="4">4番</option>
+            <option value="5">5番</option>
+            <option value="6">6番</option>
+            <option value="7">7番</option>
+            <option value="8">8番</option>
+            <option value="9">9番</option>
+            <option value="10">10番</option>
+            <option value="11">11番</option>
+            <option value="12">12番</option>
+            <option value="13">13番</option>
+            <option value="14">14番</option>
+            <option value="15">15番</option>
+            <option value="16">16番</option>
+            <option value="17">17番</option>
+            <option value="18">18番</option>
+            <option value="19">19番</option>
+            <option value="20">20番</option>
+            <option value="21">21番</option>
+            <option value="22">22番</option>
+            <option value="23">23番</option>
+            <option value="24">24番</option>
+            <option value="25">25番</option>
+            <option value="26">26番</option>
+            <option value="27">27番</option>
+            <option value="28">28番</option>
+            <option value="29">29番</option>
+            <option value="30">30番</option>
+            <option value="31">31番</option>
+            <option value="32">32番</option>
+            <option value="33">33番</option>
+            <option value="34">34番</option>
+            <option value="35">35番</option>
+            <option value="36">36番</option>
+            <option value="37">37番</option>
+            <option value="38">38番</option>
+            <option value="39">39番</option>
+            <option value="40">40番</option>
+            <option value="41">41番</option>
+            <option value="42">42番</option>
+            <option value="43">43番</option>
+          </select>
+        </div>
+        <div>
+          <label for="requestText">リクエスト内容</label>
+          <textarea id="requestText" rows="4" placeholder="シフト希望や変更リクエストを入力してください"></textarea>
+        </div>
+        <button id="sendRequestButton">リクエスト送信</button>
+        <div id="requestStatus" class="status"></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
